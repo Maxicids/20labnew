@@ -1,0 +1,24 @@
+<div>
+    <table id="table-template" class="styled-table">
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+        </tr>
+        {{#each phones}}
+            {{>record}}
+        {{/each}}
+    </table>
+</div>
+<div class="form-part edit">
+    <div class="controls-wrapper">
+        <label>
+            <input type="text" name="surname" placeholder="Type surname here...">
+        </label>
+        <label>
+            <input type="text" name="number" placeholder="Type number here...">
+        </label>
+        <button onclick="addNewRecord()">Add</button>
+        <button onclick="{{goBack}}">Cancel</button>
+    </div>
+</div>
+

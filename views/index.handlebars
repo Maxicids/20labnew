@@ -1,0 +1,14 @@
+<div>
+    <table id="table-template" class="styled-table">
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+        </tr>
+        {{#each phones}}
+            {{>record}}
+        {{/each}}
+    </table>
+</div>
+<div>
+    <button onclick="window.location.href = '/add'">Add new one</button>
+</div>
