@@ -13,7 +13,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.use('/', cellPhonesRoute);
 
-app.listen(3001, () =>
+app.listen(process.env.PORT, () =>
 {
     console.log("backend server is running");
 });
