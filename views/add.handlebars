@@ -15,11 +15,18 @@
             <input type="text" name="surname" placeholder="Type surname here...">
         </label>
         <label>
-            <input type="text" pattern="^\+375[29|33|44][0-9]{3}[0-9]{3}[0-9]{2}" name="number" placeholder="Type number here...">
+            <input id="tel" type="text" oninput="phoneOnChange()" name="number" placeholder="Type number here...">
         </label>
-        <input type="submit" onclick="addNewRecord()">
-<!--        <button onclick="addNewRecord()">Add</button>-->
+        <button id="add" onclick="addNewRecord()">Add</button>
         <button onclick="{{goBack}}">Cancel</button>
     </div>
 </div>
+<script>
+    function phoneOnChange() {
+        const text = document.querySelector('#tel').value;
+        const phonePattern = "^(\\+375|80)(29|25|44|33)(\\d{3})(\\d{2})(\\d{2})$";
+        const phoneValidation = new RegExp(phonePattern);
+        document.getElementById("add").disabled = !phoneValidation.test(text);
+    }
+</script>
 

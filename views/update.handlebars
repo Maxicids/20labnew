@@ -15,10 +15,20 @@
             <input type="text" name="surname" placeholder="Type surname here..." value="{{targetPhone.surname}}" oninput="lockRemoveButton()">
         </label>
         <label >
-            <input type="text" name="number" placeholder="Type number here..." value="{{targetPhone.number}}" oninput="lockRemoveButton()">
+            <input id="tel" type="text" oninput="phoneOnChange()" name="number" placeholder="Type number here..." value="{{targetPhone.number}}">
         </label>
         <button onclick="updateRecord()">Save</button>
         <button onclick="deleteRecord()" id="remove-button">Remove</button>
         <button onclick="{{goBack}}">Cancel</button>
     </div>
 </div>
+
+<script>
+    function phoneOnChange() {
+        lockRemoveButton();
+        const text = document.querySelector('#tel').value;
+        const phonePattern = "^(\\+375|80)(29|25|44|33)(\\d{3})(\\d{2})(\\d{2})$";
+        const phoneValidation = new RegExp(phonePattern);
+        document.getElementById("add").disabled = !phoneValidation.test(text);
+    }
+</script>
